@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLINKS株式会社 | AI DRIVEN COMPANY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cursor"></div>
+
+    <canvas id="webgl-canvas"></canvas>
+
+    <header>
+        <div class="header-left">
+            <a href="#" class="logo hover-target">
+                <img src="./img/clinks_1_color_6_logo_h_sub.png" alt="CLINKS株式会社">
+            </a>
+        </div>
+
+        <div class="header-right">
+            <!-- 上段：SNS、Chat AI、CVボタン -->
+            <div class="header-top-bar">
+                <div class="sns-icons">
+                    <a href="#" class="sns-link hover-target" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
+                    </a>
+                    <a href="#" class="sns-link hover-target" aria-label="X (Twitter)">
+                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                    </a>
+                    <a href="#" class="sns-link hover-target" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"></path></svg>
+                    </a>
+                    <a href="#" class="sns-link hover-target" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24"><path d="M21.58 5.4a2.82 2.82 0 00-1.99-2C17.84 2.8 12 2.8 12 2.8s-5.84 0-7.59.6a2.82 2.82 0 00-1.99 2 29.5 29.5 0 00-.6 5.6 29.5 29.5 0 00.6 5.6 2.82 2.82 0 001.99 2c1.75.6 7.59.6 7.59.6s5.84 0 7.59-.6a2.82 2.82 0 001.99-2 29.5 29.5 0 00.6-5.6 29.5 29.5 0 00-.6-5.6zM10 14V8l5.5 3z"></path></svg>
+                    </a>
+                </div>
+
+                <a href="#" class="header-banner-chat hover-target">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    CLINKS Chat AI
+                </a>
+
+                <div class="header-cv-buttons">
+                    <a href="#" class="btn-header-cv download hover-target">資料ダウンロード</a>
+                    <a href="#" class="btn-header-cv contact hover-target">お問い合わせ</a>
+                </div>
+            </div>
+
+            <!-- 下段：ナビゲーションメニュー -->
+            <nav class="header-nav-bar">
+                <ul>
+                    <!-- ■ 会社概要（横並びレイアウトに変更） -->
+                    <li class="has-dropdown">
+                        <a href="#" class="hover-target nav-link-main">会社概要</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-inner">
+                                <!-- 幅いっぱいのカラムを作成 -->
+                                <div class="menu-column full-width">
+                                    <h4>Company Profile</h4>
+                                    <div class="horizontal-links">
+                                        <a href="#" class="hover-target">企業理念・沿革</a>
+                                        <a href="#" class="hover-target">代表挨拶</a>
+                                        <a href="#" class="hover-target">役員紹介</a>
+                                        <a href="#" class="hover-target">アクセス・MAP</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- ■ ニュース（指定の内容に変更） -->
+                    <li class="has-dropdown">
+                        <a href="#" class="hover-target nav-link-main">ニュース</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-inner">
+                                <!-- カテゴリ一覧 -->
+                                <div class="menu-column">
+                                    <h4>ニュース一覧</h4>
+                                    <a href="#" class="hover-target">プレスリリース</a>
+                                    <a href="#" class="hover-target">トピックス</a>
+                                </div>
+                                <!-- 年別アーカイブ -->
+                                <div class="menu-column">
+                                    <h4>年別アーカイブ</h4>
+                                    <a href="#" class="hover-target">2025</a>
+                                    <a href="#" class="hover-target">2024</a>
+                                    <a href="#" class="hover-target">2023</a>
+                                    <a href="#" class="hover-target">2022</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- ■ 事業内容 -->
+                    <li class="has-dropdown">
+                        <a href="#" class="hover-target nav-link-main">事業内容</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-inner">
+                                <div class="menu-column">
+                                    <h4>AIソリューション</h4>
+                                    <a href="#" class="hover-target">AIに関する受託</a>
+                                    <a href="#" class="hover-target">AIプロダクト</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>ITアウトソーシング事業</h4>
+                                    <a href="#" class="hover-target">エンジニアリングサービス</a>
+                                    <a href="#" class="hover-target">在宅ITエンジニアリングサービス</a>
+                                    <a href="#" class="hover-target">情報システムエンジニアリングサービス</a>
+                                    <a href="#" class="hover-target">トレーニングワン</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>クラウド構築・運用</h4>
+                                    <a href="#" class="hover-target">oracleエンジニアリングサービス</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>システム開発・DX支援</h4>
+                                    <a href="#" class="hover-target">システム開発</a>
+                                    <a href="#" class="hover-target">DX推進・AIエンジニアリングサービス</a>
+                                    <a href="#" class="hover-target">クラウド勤怠管理システムキンクラ </a>
+                                    <a href="#" class="hover-target">テレワーク支援システムZaiTark</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- ■ コラム -->
+                    <li class="has-dropdown">
+                        <a href="#" class="hover-target nav-link-main">コラム</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-inner">
+                                <div class="menu-column">
+                                    <h4>インタビュー</h4>
+                                    <a href="#" class="hover-target">企業インタビュー</a>
+                                    <a href="#" class="hover-target">社員インタビュー</a>
+                                    <a href="#" class="hover-target">管理職インタビュー</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>パパ・ママ日記</h4>
+                                    <a href="#" class="hover-target">パパ・ママ日記とは？</a>
+                                    <h4 style="margin-top: 20px;">事業関連</h4>
+                                    <a href="#" class="hover-target">AIシステム開発</a>
+                                    <a href="#" class="hover-target">OCI</a>
+                                    <a href="#" class="hover-target">スマートフォンアプリ開発</a>
+                                    <a href="#" class="hover-target">ナレフルチャット</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>会社紹介</h4>
+                                    <a href="#" class="hover-target">AI</a>
+                                    <a href="#" class="hover-target">デザイン</a>
+                                    <a href="#" class="hover-target">テレワーク</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>採用関連</h4>
+                                    <a href="#" class="hover-target">採用情報を見る</a>
+                                    <h4 style="margin-top: 20px;">社内イベント</h4>
+                                    <a href="#" class="hover-target">イベントレポート</a>
+                                    <h4 style="margin-top: 20px;">資格試験</h4>
+                                    <a href="#" class="hover-target">資格取得支援</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- ■ CLINKSの取り組み -->
+                    <li class="has-dropdown">
+                        <a href="#" class="hover-target nav-link-main">CLINKSの取り組み</a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-inner">
+                                <div class="menu-column">
+                                    <h4>Initiatives</h4>
+                                    <a href="#" class="hover-target">テレワーク推進</a>
+                                    <a href="#" class="hover-target">RES</a>
+                                    <a href="#" class="hover-target">健康経営への取り組み</a>
+                                </div>
+                                <div class="menu-column">
+                                    <h4>&nbsp;</h4>
+                                    <a href="#" class="hover-target">AX・DX</a>
+                                    <a href="#" class="hover-target">ビタミンプロジェクト</a>
+                                    <a href="#" class="hover-target">SDGs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 外部リンク -->
+                    <li>
+                        <a href="#" class="hover-target external-link">
+                            採用情報
+                            <svg class="icon-external" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-left">
+                <h1>
+                    <span class="gradient-text">AI<br>DRIVEN</span><br>
+                    COMPANY.
+                </h1>
+                <div class="hero-lead-block">
+                    <h3 class="lead-catch">
+                        データを知恵へ、AIを力へ。<br>
+                        <span class="highlight">未来と繋ぐインテリジェンス</span>
+                    </h3>
+                    <div class="lead-body">
+                        <p>私たちは未来に何が残せるのか――<br>
+                            AIとともに可能性を紡ぎ、まだ見ぬ価値を形にし、未来の当たり前を創造する。<br>
+                            今日の挑戦が、明日の常識になる。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="hero-right">
+                <div class="feed-label">AI LATEST INSIGHTS</div>
+                <div class="feed-window">
+                    <div class="feed-track">
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">AI ANALYSIS</span>
+                            <p class="feed-title">深層学習モデルによる第4四半期の市場予測アルゴリズムを公開しました。</p>
+                            <span class="feed-date">2024.12.15</span>
+                        </a>
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">TECH BLOG</span>
+                            <p class="feed-title">生成AIを活用した自動コードレビューシステムの導入事例。</p>
+                            <span class="feed-date">2024.12.14</span>
+                        </a>
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">NEWS</span>
+                            <p class="feed-title">自然言語処理（NLP）精度が従来の150%向上しました。</p>
+                            <span class="feed-date">2024.12.12</span>
+                        </a>
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">EVENT</span>
+                            <p class="feed-title">AI EXPO 2024に出展決定。ブースにてデモ展示を行います。</p>
+                            <span class="feed-date">2024.12.10</span>
+                        </a>
+        
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">AI ANALYSIS</span>
+                            <p class="feed-title">深層学習モデルによる第4四半期の市場予測アルゴリズムを公開しました。</p>
+                            <span class="feed-date">2024.12.15</span>
+                        </a>
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">TECH BLOG</span>
+                            <p class="feed-title">生成AIを活用した自動コードレビューシステムの導入事例。</p>
+                            <span class="feed-date">2024.12.14</span>
+                        </a>
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">NEWS</span>
+                            <p class="feed-title">自然言語処理（NLP）精度が従来の150%向上しました。</p>
+                            <span class="feed-date">2024.12.12</span>
+                        </a>
+                        <a href="#" class="feed-item hover-target">
+                            <span class="feed-tag">EVENT</span>
+                            <p class="feed-title">AI EXPO 2024に出展決定。ブースにてデモ展示を行います。</p>
+                            <span class="feed-date">2024.12.10</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="feed-overlay"></div>
+            </div>
+        </section>
+<div class="press-release-bar hover-target">
+    <div class="news-list-container">
+        
+        <a href="#" class="news-row">
+            <div class="news-meta">
+                <span class="cat-badge press">PRESS RELEASE</span>
+                <span class="news-date">2024.12.15</span>
+            </div>
+            <div class="news-title">AI新ソリューション「Clinks AI-X」の提供を開始しました。</div>
+        </a>
+
+        <a href="#" class="news-row">
+            <div class="news-meta">
+                <span class="cat-badge topics">TOPICS</span>
+                <span class="news-date">2024.12.10</span>
+            </div>
+            <div class="news-title">年末年始の休業日とサポート体制に関するお知らせ。</div>
+        </a>
+
+        <a href="#" class="news-row">
+            <div class="news-meta">
+                <span class="cat-badge press">PRESS RELEASE</span>
+                <span class="news-date">2024.11.28</span>
+            </div>
+            <div class="news-title">「AI EXPO TOKYO」出展レポートを公開しました。</div>
+        </a>
+
+        <div class="news-more">
+            <a href="#" class="view-all-link">VIEW ALL NEWS &rarr;</a>
+        </div>
+    </div>
+</div>
+
+        <section class="mission">
+
+        </section>
+
+    </main>
+
+
+    <a href="#" class="ai-chatbot hover-target" id="aiChatbot">
+        <div class="chatbot-pulse-glow"></div>
+        
+        <div class="chatbot-content-wrapper">
+            <div class="chatbot-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="white" fill-opacity="0.2"/>
+                    <path d="M16 8C16 6.9 15.1 6 14 6H10C8.9 6 8 6.9 8 8V11C8 12.1 8.9 13 10 13H14C15.1 13 16 12.1 16 11V8Z" fill="white"/>
+                    <circle cx="10.5" cy="9.5" r="1" fill="#FF4E00"/>
+                    <circle cx="13.5" cy="9.5" r="1" fill="#FF4E00"/>
+                    <path d="M7 14H5V17H7V14Z" fill="white"/>
+                    <path d="M19 14H17V17H19V14Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="chatbot-text">
+                <span class="chatbot-label-main">AIチャットで相談</span>
+                <span class="chatbot-label-sub">24時間対応中</span>
+            </div>
+        </div>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
