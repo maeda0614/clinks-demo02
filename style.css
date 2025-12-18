@@ -227,7 +227,7 @@ nav li.has-dropdown { height: 100%; display: flex; align-items: center; }
     transform: translateX(-50%) translateY(0);
 }
 
-.mega-menu-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; width: 100%; }
+.mega-menu-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 23px; width: 100%; }
 .menu-column.full-width { grid-column: 1 / -1; }
 .horizontal-links { display: flex; flex-wrap: wrap; gap: 30px; }
 .menu-column { display: flex; flex-direction: column; text-align: left; }
@@ -852,3 +852,4 @@ footer {
         font-weight: 800;
     }
 }
+
