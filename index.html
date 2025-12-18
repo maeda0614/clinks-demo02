@@ -17,190 +17,237 @@
     <canvas id="webgl-canvas"></canvas>
 
     <header>
+        <!-- ■ 左側エリア：ロゴ ＋ Chat AI -->
         <div class="header-left">
             <a href="#" class="logo hover-target">
+                <!-- ロゴ画像パスは環境に合わせて変更してください -->
                 <img src="./img/clinks_1_color_6_logo_h_sub.png" alt="CLINKS株式会社">
+            </a>
+
+          <!-- Chat AI バナー（ロボットアイコン変更版） -->
+            <a href="#" class="header-banner-chat hover-target">
+                <div class="chat-icon-box">
+                    <!-- ロボットアイコン -->
+                    <svg viewBox="0 0 24 24" fill="none" class="ai-icon">
+                        <!-- グラデーション定義 -->
+                        <defs>
+                            <linearGradient id="grad_robot" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#FF4E00;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFB600;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- アンテナの先端（グラデーションで光らせる） -->
+                        <circle cx="12" cy="3" r="1.5" fill="url(#grad_robot)"/>
+                        
+                        <!-- アンテナの軸 -->
+                        <path d="M12 4.5v3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        
+                        <!-- 顔の輪郭（少し四角くしてロボット感を出す） -->
+                        <rect x="4" y="8" width="16" height="13" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                        
+                        <!-- 耳パーツ（横の突起） -->
+                        <path d="M2 14.5h2M20 14.5h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        
+                        <!-- 目（ぱっちり） -->
+                        <circle cx="9" cy="13.5" r="1.5" fill="currentColor"/>
+                        <circle cx="15" cy="13.5" r="1.5" fill="currentColor"/>
+                        
+                        <!-- 口（デジタルな横棒） -->
+                        <path d="M9 17.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="chat-text-box">
+                    <span class="chat-sub">AI Assistant</span>
+                    <span class="chat-main">CLINKS Chat AI</span>
+                </div>
             </a>
         </div>
 
+        <!-- ■ 右側エリア：メインコンテンツ(上段下段) ＋ 統計バッジ(右端) -->
         <div class="header-right">
-            <!-- 上段：SNS、Chat AI、CVボタン -->
-            <div class="header-top-bar">
-                <div class="sns-icons">
-                    <a href="#" class="sns-link hover-target" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg>
-                    </a>
-                    <a href="#" class="sns-link hover-target" aria-label="X (Twitter)">
-                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-                    </a>
-                    <a href="#" class="sns-link hover-target" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"></path></svg>
-                    </a>
-                    <a href="#" class="sns-link hover-target" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M21.58 5.4a2.82 2.82 0 00-1.99-2C17.84 2.8 12 2.8 12 2.8s-5.84 0-7.59.6a2.82 2.82 0 00-1.99 2 29.5 29.5 0 00-.6 5.6 29.5 29.5 0 00.6 5.6 2.82 2.82 0 001.99 2c1.75.6 7.59.6 7.59.6s5.84 0 7.59-.6a2.82 2.82 0 001.99-2 29.5 29.5 0 00.6-5.6 29.5 29.5 0 00-.6-5.6zM10 14V8l5.5 3z"></path></svg>
-                    </a>
+            
+            <!-- 中央寄りのコンテンツ群（ボタン＋メニュー） -->
+            <div class="header-main-content">
+                
+                <!-- 上段：SNS ＋ CVボタン -->
+                <div class="header-top-bar">
+                    <div class="sns-icons">
+                        <a href="#" class="sns-link hover-target" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path></svg></a>
+                        <a href="#" class="sns-link hover-target" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                        <a href="#" class="sns-link hover-target" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"></path></svg></a>
+                        <a href="#" class="sns-link hover-target" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.58 5.4a2.82 2.82 0 00-1.99-2C17.84 2.8 12 2.8 12 2.8s-5.84 0-7.59.6a2.82 2.82 0 00-1.99 2 29.5 29.5 0 00-.6 5.6 29.5 29.5 0 00.6 5.6 2.82 2.82 0 001.99 2c1.75.6 7.59.6 7.59.6s5.84 0 7.59-.6a2.82 2.82 0 001.99-2 29.5 29.5 0 00.6-5.6 29.5 29.5 0 00-.6-5.6zM10 14V8l5.5 3z"></path></svg></a>
+                    </div>
+                    <div class="header-cv-buttons">
+                        <a href="#" class="btn-header-cv download hover-target">資料ダウンロード</a>
+                        <a href="#" class="btn-header-cv contact hover-target">お問い合わせ</a>
+                    </div>
                 </div>
 
-                <a href="#" class="header-banner-chat hover-target">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    CLINKS Chat AI
-                </a>
-
-                <div class="header-cv-buttons">
-                    <a href="#" class="btn-header-cv download hover-target">資料ダウンロード</a>
-                    <a href="#" class="btn-header-cv contact hover-target">お問い合わせ</a>
-                </div>
-            </div>
-
-            <!-- 下段：ナビゲーションメニュー -->
-            <nav class="header-nav-bar">
-                <ul>
-                    <!-- ■ 会社概要（横並びレイアウトに変更） -->
-                    <li class="has-dropdown">
-                        <a href="#" class="hover-target nav-link-main">会社概要</a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-inner">
-                                <!-- 幅いっぱいのカラムを作成 -->
-                                <div class="menu-column full-width">
-                                    <h4>Company Profile</h4>
-                                    <div class="horizontal-links">
-                                        <a href="#" class="hover-target">企業理念・沿革</a>
-                                        <a href="#" class="hover-target">代表挨拶</a>
-                                        <a href="#" class="hover-target">役員紹介</a>
-                                        <a href="#" class="hover-target">アクセス・MAP</a>
+                <!-- 下段：ナビゲーションメニュー -->
+                <nav class="header-nav-bar">
+                    <ul>
+                        <!-- 会社概要 -->
+                        <li class="has-dropdown">
+                            <a href="#" class="hover-target nav-link-main">会社概要</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-inner">
+                                    <div class="menu-column full-width">
+                                        <h4>Company Profile</h4>
+                                        <div class="horizontal-links">
+                                            <a href="#" class="hover-target">企業理念・沿革</a>
+                                            <a href="#" class="hover-target">代表挨拶</a>
+                                            <a href="#" class="hover-target">役員紹介</a>
+                                            <a href="#" class="hover-target">アクセス・MAP</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <!-- ■ ニュース（指定の内容に変更） -->
-                    <li class="has-dropdown">
-                        <a href="#" class="hover-target nav-link-main">ニュース</a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-inner">
-                                <!-- カテゴリ一覧 -->
-                                <div class="menu-column">
-                                    <h4>ニュース一覧</h4>
-                                    <a href="#" class="hover-target">プレスリリース</a>
-                                    <a href="#" class="hover-target">トピックス</a>
-                                </div>
-                                <!-- 年別アーカイブ -->
-                                <div class="menu-column">
-                                    <h4>年別アーカイブ</h4>
-                                    <a href="#" class="hover-target">2025</a>
-                                    <a href="#" class="hover-target">2024</a>
-                                    <a href="#" class="hover-target">2023</a>
-                                    <a href="#" class="hover-target">2022</a>
+                        <!-- ニュース -->
+                        <li class="has-dropdown">
+                            <a href="#" class="hover-target nav-link-main">ニュース</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-inner">
+                                    <div class="menu-column">
+                                        <h4>ニュース一覧</h4>
+                                        <a href="#" class="hover-target">プレスリリース</a>
+                                        <a href="#" class="hover-target">トピックス</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>年別アーカイブ</h4>
+                                        <a href="#" class="hover-target">2025</a>
+                                        <a href="#" class="hover-target">2024</a>
+                                        <a href="#" class="hover-target">2023</a>
+                                        <a href="#" class="hover-target">2022</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    
-                    <!-- ■ 事業内容 -->
-                    <li class="has-dropdown">
-                        <a href="#" class="hover-target nav-link-main">事業内容</a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-inner">
-                                <div class="menu-column">
-                                    <h4>AIソリューション</h4>
-                                    <a href="#" class="hover-target">AIに関する受託</a>
-                                    <a href="#" class="hover-target">AIプロダクト</a>
-                                </div>
-                                <div class="menu-column">
-                                    <h4>ITアウトソーシング事業</h4>
-                                    <a href="#" class="hover-target">エンジニアリングサービス</a>
-                                    <a href="#" class="hover-target">在宅ITエンジニアリングサービス</a>
-                                    <a href="#" class="hover-target">情報システムエンジニアリングサービス</a>
-                                    <a href="#" class="hover-target">トレーニングワン</a>
-                                </div>
-                                <div class="menu-column">
-                                    <h4>クラウド構築・運用</h4>
-                                    <a href="#" class="hover-target">oracleエンジニアリングサービス</a>
-                                </div>
-                                <div class="menu-column">
-                                    <h4>システム開発・DX支援</h4>
-                                    <a href="#" class="hover-target">システム開発</a>
-                                    <a href="#" class="hover-target">DX推進・AIエンジニアリングサービス</a>
-                                    <a href="#" class="hover-target">クラウド勤怠管理システムキンクラ </a>
-                                    <a href="#" class="hover-target">テレワーク支援システムZaiTark</a>
+                        </li>
+
+                        <!-- 事業内容 -->
+                        <li class="has-dropdown">
+                            <a href="#" class="hover-target nav-link-main">事業内容</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-inner">
+                                    <div class="menu-column">
+                                        <h4>AIソリューション</h4>
+                                        <a href="#" class="hover-target">AIに関する受託</a>
+                                        <a href="#" class="hover-target">AIプロダクト</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>ITアウトソーシング事業</h4>
+                                        <a href="#" class="hover-target">エンジニアリングサービス</a>
+                                        <a href="#" class="hover-target">在宅ITエンジニアリングサービス</a>
+                                        <a href="#" class="hover-target">情報システムエンジニアリングサービス</a>
+                                        <a href="#" class="hover-target">トレーニングワン</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>クラウド構築・運用</h4>
+                                        <a href="#" class="hover-target">oracleエンジニアリングサービス</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>システム開発・DX支援</h4>
+                                        <a href="#" class="hover-target">システム開発</a>
+                                        <a href="#" class="hover-target">DX推進・AIエンジニアリングサービス</a>
+                                        <a href="#" class="hover-target">クラウド勤怠管理システムキンクラ </a>
+                                        <a href="#" class="hover-target">テレワーク支援システムZaiTark</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <!-- ■ コラム -->
-                    <li class="has-dropdown">
-                        <a href="#" class="hover-target nav-link-main">コラム</a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-inner">
-                                <div class="menu-column">
-                                    <h4>インタビュー</h4>
-                                    <a href="#" class="hover-target">企業インタビュー</a>
-                                    <a href="#" class="hover-target">社員インタビュー</a>
-                                    <a href="#" class="hover-target">管理職インタビュー</a>
-                                </div>
-                                <div class="menu-column">
-                                    <h4>パパ・ママ日記</h4>
-                                    <a href="#" class="hover-target">パパ・ママ日記とは？</a>
-                                    <h4 style="margin-top: 20px;">事業関連</h4>
-                                    <a href="#" class="hover-target">AIシステム開発</a>
-                                    <a href="#" class="hover-target">OCI</a>
-                                    <a href="#" class="hover-target">スマートフォンアプリ開発</a>
-                                    <a href="#" class="hover-target">ナレフルチャット</a>
-                                </div>
-                                <div class="menu-column">
-                                    <h4>会社紹介</h4>
-                                    <a href="#" class="hover-target">AI</a>
-                                    <a href="#" class="hover-target">デザイン</a>
-                                    <a href="#" class="hover-target">テレワーク</a>
-                                </div>
-                                <div class="menu-column">
-                                    <h4>採用関連</h4>
-                                    <a href="#" class="hover-target">採用情報を見る</a>
-                                    <h4 style="margin-top: 20px;">社内イベント</h4>
-                                    <a href="#" class="hover-target">イベントレポート</a>
-                                    <h4 style="margin-top: 20px;">資格試験</h4>
-                                    <a href="#" class="hover-target">資格取得支援</a>
+                        <!-- コラム -->
+                        <li class="has-dropdown">
+                            <a href="#" class="hover-target nav-link-main">コラム</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-inner">
+                                    <div class="menu-column">
+                                        <h4>インタビュー</h4>
+                                        <a href="#" class="hover-target">企業インタビュー</a>
+                                        <a href="#" class="hover-target">社員インタビュー</a>
+                                        <a href="#" class="hover-target">管理職インタビュー</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>パパ・ママ日記</h4>
+                                        <a href="#" class="hover-target">パパ・ママ日記とは？</a>
+                                        <h4 style="margin-top: 20px;">事業関連</h4>
+                                        <a href="#" class="hover-target">AIシステム開発</a>
+                                        <a href="#" class="hover-target">OCI</a>
+                                        <a href="#" class="hover-target">スマートフォンアプリ開発</a>
+                                        <a href="#" class="hover-target">ナレフルチャット</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>会社紹介</h4>
+                                        <a href="#" class="hover-target">AI</a>
+                                        <a href="#" class="hover-target">デザイン</a>
+                                        <a href="#" class="hover-target">テレワーク</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>採用関連</h4>
+                                        <a href="#" class="hover-target">採用情報を見る</a>
+                                        <h4 style="margin-top: 20px;">社内イベント</h4>
+                                        <a href="#" class="hover-target">イベントレポート</a>
+                                        <h4 style="margin-top: 20px;">資格試験</h4>
+                                        <a href="#" class="hover-target">資格取得支援</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <!-- ■ CLINKSの取り組み -->
-                    <li class="has-dropdown">
-                        <a href="#" class="hover-target nav-link-main">CLINKSの取り組み</a>
-                        <div class="mega-menu">
-                            <div class="mega-menu-inner">
-                                <div class="menu-column">
-                                    <h4>Initiatives</h4>
-                                    <a href="#" class="hover-target">テレワーク推進</a>
-                                    <a href="#" class="hover-target">RES</a>
-                                    <a href="#" class="hover-target">健康経営への取り組み</a>
-                                </div>
-                                <div class="menu-column">
-                                    <h4>&nbsp;</h4>
-                                    <a href="#" class="hover-target">AX・DX</a>
-                                    <a href="#" class="hover-target">ビタミンプロジェクト</a>
-                                    <a href="#" class="hover-target">SDGs</a>
+                        <!-- CLINKSの取り組み -->
+                        <li class="has-dropdown">
+                            <a href="#" class="hover-target nav-link-main">CLINKSの取り組み</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-inner">
+                                    <div class="menu-column">
+                                        <h4>Initiatives</h4>
+                                        <a href="#" class="hover-target">テレワーク推進</a>
+                                        <a href="#" class="hover-target">RES</a>
+                                        <a href="#" class="hover-target">健康経営への取り組み</a>
+                                    </div>
+                                    <div class="menu-column">
+                                        <h4>&nbsp;</h4>
+                                        <a href="#" class="hover-target">AX・DX</a>
+                                        <a href="#" class="hover-target">ビタミンプロジェクト</a>
+                                        <a href="#" class="hover-target">SDGs</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <!-- 外部リンク -->
-                    <li>
-                        <a href="#" class="hover-target external-link">
-                            採用情報
-                            <svg class="icon-external" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                        <!-- 外部リンク：採用情報 -->
+                        <li>
+                            <a href="#" class="hover-target external-link">
+                                採用情報
+                                <svg class="icon-external" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- ■ 右端：統計バッジ（画像） -->
+            <div class="header-stats">
+                <!-- 在宅率 -->
+                <div class="stat-badge hover-target">
+                    <!-- 保存した画像をimgフォルダ等に置いてください -->
+                    <img src="./img/links_per_zai.png" alt="在宅率 2025年9月時点">
+                    <!-- 画像の上に重ねる数字 -->
+                    <span class="stat-number">65<small>%</small></span>
+                </div>
+                <!-- 社員数 -->
+                <div class="stat-badge hover-target">
+                    <img src="./img/links_per_shai.png" alt="社員数 2025年6月時点">
+                    <span class="stat-number">1,264</span>
+                </div>
+            </div>
+
         </div>
     </header>
 
@@ -212,14 +259,10 @@
                     COMPANY.
                 </h1>
                 <div class="hero-lead-block">
-                    <h3 class="lead-catch">
-                        データを知恵へ、AIを力へ。<br>
-                        <span class="highlight">未来と繋ぐインテリジェンス</span>
-                    </h3>
                     <div class="lead-body">
-                        <p>私たちは未来に何が残せるのか――<br>
-                            AIとともに可能性を紡ぎ、まだ見ぬ価値を形にし、未来の当たり前を創造する。<br>
-                            今日の挑戦が、明日の常識になる。
+                        <p>私たちは未来に何が残せるのか ――<br>
+                            AIとともに可能性を紡ぎ、まだ見ぬ価値を形にし、未来の当たり前を創造する<br>
+                            今日の挑戦が、明日の常識になる
                         </p>
                     </div>
                 </div>
