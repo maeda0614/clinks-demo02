@@ -17,57 +17,18 @@
     <canvas id="webgl-canvas"></canvas>
 
     <header>
-        <!-- ■ 左側エリア：ロゴ ＋ Chat AI -->
+        <!-- ■ 左側エリア：ロゴ -->
         <div class="header-left">
             <a href="#" class="logo hover-target">
                 <!-- ロゴ画像パスは環境に合わせて変更してください -->
                 <img src="./img/clinks_1_color_6_logo_h_sub.png" alt="CLINKS株式会社">
             </a>
-
-          <!-- Chat AI バナー（ロボットアイコン変更版） -->
-            <a href="#" class="header-banner-chat hover-target">
-                <div class="chat-icon-box">
-                    <!-- ロボットアイコン -->
-                    <svg viewBox="0 0 24 24" fill="none" class="ai-icon">
-                        <!-- グラデーション定義 -->
-                        <defs>
-                            <linearGradient id="grad_robot" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#FF4E00;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FFB600;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-
-                        <!-- アンテナの先端（グラデーションで光らせる） -->
-                        <circle cx="12" cy="3" r="1.5" fill="url(#grad_robot)"/>
-                        
-                        <!-- アンテナの軸 -->
-                        <path d="M12 4.5v3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        
-                        <!-- 顔の輪郭（少し四角くしてロボット感を出す） -->
-                        <rect x="4" y="8" width="16" height="13" rx="3" stroke="currentColor" stroke-width="1.5"/>
-                        
-                        <!-- 耳パーツ（横の突起） -->
-                        <path d="M2 14.5h2M20 14.5h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        
-                        <!-- 目（ぱっちり） -->
-                        <circle cx="9" cy="13.5" r="1.5" fill="currentColor"/>
-                        <circle cx="15" cy="13.5" r="1.5" fill="currentColor"/>
-                        
-                        <!-- 口（デジタルな横棒） -->
-                        <path d="M9 17.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="chat-text-box">
-                    <span class="chat-sub">AI Assistant</span>
-                    <span class="chat-main">CLINKS Chat AI</span>
-                </div>
-            </a>
         </div>
 
-        <!-- ■ 右側エリア：メインコンテンツ(上段下段) ＋ 統計バッジ(右端) -->
+        <!-- ■ 右側エリア -->
         <div class="header-right">
             
-            <!-- 中央寄りのコンテンツ群（ボタン＋メニュー） -->
+            <!-- 中央寄りのコンテンツ群 -->
             <div class="header-main-content">
                 
                 <!-- 上段：SNS ＋ CVボタン -->
@@ -78,13 +39,14 @@
                         <a href="#" class="sns-link hover-target" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"></path></svg></a>
                         <a href="#" class="sns-link hover-target" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.58 5.4a2.82 2.82 0 00-1.99-2C17.84 2.8 12 2.8 12 2.8s-5.84 0-7.59.6a2.82 2.82 0 00-1.99 2 29.5 29.5 0 00-.6 5.6 29.5 29.5 0 00.6 5.6 2.82 2.82 0 001.99 2c1.75.6 7.59.6 7.59.6s5.84 0 7.59-.6a2.82 2.82 0 001.99-2 29.5 29.5 0 00.6-5.6 29.5 29.5 0 00-.6-5.6zM10 14V8l5.5 3z"></path></svg></a>
                     </div>
+                    
                     <div class="header-cv-buttons">
                         <a href="#" class="btn-header-cv download hover-target">資料ダウンロード</a>
                         <a href="#" class="btn-header-cv contact hover-target">お問い合わせ</a>
                     </div>
                 </div>
 
-                <!-- 下段：ナビゲーションメニュー -->
+                <!-- 下段：ナビゲーションメニュー（フル記述） -->
                 <nav class="header-nav-bar">
                     <ul>
                         <!-- 会社概要 -->
@@ -232,18 +194,16 @@
                 </nav>
             </div>
 
-            <!-- ■ 右端：統計バッジ（画像） -->
+            <!-- ■ 右端：統計情報（修正：大きく、囲みデザイン） -->
             <div class="header-stats">
                 <!-- 在宅率 -->
                 <div class="stat-badge hover-target">
-                    <!-- 保存した画像をimgフォルダ等に置いてください -->
-                    <img src="./img/links_per_zai.png" alt="在宅率 2025年9月時点">
-                    <!-- 画像の上に重ねる数字 -->
+                    <span class="stat-label">在宅率</span>
                     <span class="stat-number">65<small>%</small></span>
                 </div>
                 <!-- 社員数 -->
                 <div class="stat-badge hover-target">
-                    <img src="./img/links_per_shai.png" alt="社員数 2025年6月時点">
+                    <span class="stat-label">社員数</span>
                     <span class="stat-number">1,264</span>
                 </div>
             </div>
@@ -318,58 +278,67 @@
                 <div class="feed-overlay"></div>
             </div>
         </section>
-<div class="press-release-bar hover-target">
-    <div class="news-list-container">
         
-        <a href="#" class="news-row">
-            <div class="news-meta">
-                <span class="cat-badge press">PRESS RELEASE</span>
-                <span class="news-date">2024.12.15</span>
-            </div>
-            <div class="news-title">AI新ソリューション「Clinks AI-X」の提供を開始しました。</div>
-        </a>
+        <div class="press-release-bar hover-target">
+            <div class="news-list-container">
+                <a href="#" class="news-row">
+                    <div class="news-meta">
+                        <span class="cat-badge press">PRESS RELEASE</span>
+                        <span class="news-date">2024.12.15</span>
+                    </div>
+                    <div class="news-title">AI新ソリューション「Clinks AI-X」の提供を開始しました。</div>
+                </a>
 
-        <a href="#" class="news-row">
-            <div class="news-meta">
-                <span class="cat-badge topics">TOPICS</span>
-                <span class="news-date">2024.12.10</span>
-            </div>
-            <div class="news-title">年末年始の休業日とサポート体制に関するお知らせ。</div>
-        </a>
+                <a href="#" class="news-row">
+                    <div class="news-meta">
+                        <span class="cat-badge topics">TOPICS</span>
+                        <span class="news-date">2024.12.10</span>
+                    </div>
+                    <div class="news-title">年末年始の休業日とサポート体制に関するお知らせ。</div>
+                </a>
 
-        <a href="#" class="news-row">
-            <div class="news-meta">
-                <span class="cat-badge press">PRESS RELEASE</span>
-                <span class="news-date">2024.11.28</span>
-            </div>
-            <div class="news-title">「AI EXPO TOKYO」出展レポートを公開しました。</div>
-        </a>
+                <a href="#" class="news-row">
+                    <div class="news-meta">
+                        <span class="cat-badge press">PRESS RELEASE</span>
+                        <span class="news-date">2024.11.28</span>
+                    </div>
+                    <div class="news-title">「AI EXPO TOKYO」出展レポートを公開しました。</div>
+                </a>
 
-        <div class="news-more">
-            <a href="#" class="view-all-link">VIEW ALL NEWS &rarr;</a>
+                <div class="news-more">
+                    <a href="#" class="view-all-link">VIEW ALL NEWS &rarr;</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
         <section class="mission">
-
+            <!-- コンテンツ追加用 -->
         </section>
 
     </main>
 
 
+    <!-- ■ チャットボット（ロボットアイコン化・常時表示） -->
     <a href="#" class="ai-chatbot hover-target" id="aiChatbot">
         <div class="chatbot-pulse-glow"></div>
         
         <div class="chatbot-content-wrapper">
             <div class="chatbot-icon">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="white" fill-opacity="0.2"/>
-                    <path d="M16 8C16 6.9 15.1 6 14 6H10C8.9 6 8 6.9 8 8V11C8 12.1 8.9 13 10 13H14C15.1 13 16 12.1 16 11V8Z" fill="white"/>
-                    <circle cx="10.5" cy="9.5" r="1" fill="#FF4E00"/>
-                    <circle cx="13.5" cy="9.5" r="1" fill="#FF4E00"/>
-                    <path d="M7 14H5V17H7V14Z" fill="white"/>
-                    <path d="M19 14H17V17H19V14Z" fill="white"/>
+                <!-- ロボットらしいアイコン（四角い顔、アンテナ、目） -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- アンテナ -->
+                    <line x1="12" y1="2" x2="12" y2="6"></line>
+                    <circle cx="12" cy="2" r="1" fill="#FF4E00" stroke="none"></circle>
+                    <!-- 頭の輪郭 -->
+                    <rect x="4" y="6" width="16" height="12" rx="2"></rect>
+                    <!-- 目 -->
+                    <circle cx="9" cy="11" r="1.5" fill="white" stroke="none"></circle>
+                    <circle cx="15" cy="11" r="1.5" fill="white" stroke="none"></circle>
+                    <!-- 口 -->
+                    <path d="M9 15h6"></path>
+                    <!-- 耳 -->
+                    <line x1="2" y1="12" x2="4" y2="12"></line>
+                    <line x1="20" y1="12" x2="22" y2="12"></line>
                 </svg>
             </div>
             <div class="chatbot-text">
