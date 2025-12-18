@@ -67,27 +67,13 @@ a { text-decoration: none; color: inherit; cursor: none; }
     opacity: 1;
 }
 
-.header-banner-chat:hover {
-    background: #fff;
-    border-color: var(--accent-start);
-    color: var(--accent-start);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.header-banner-chat svg {
-    width: 15px;
-    height: 15px;
-    stroke: currentColor;
-    margin-bottom: 1px;
-}
 /* =========================================
-   4. Header Layout (Full Code)
+   4. Header Layout
    ========================================= */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    /* コンテンツに応じた高さ（概ね90-100px程度） */
     height: auto; 
     padding: 0;
     display: flex;
@@ -99,13 +85,12 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Left Area: Logo & Chat AI --- */
+/* --- Left Area: Logo --- */
 .header-left {
     display: flex;
     align-items: center;
     padding-left: 40px;
     flex-shrink: 0;
-    gap: 25px; /* ロゴとバナーの間隔 */
 }
 
 .logo img {
@@ -114,59 +99,21 @@ header {
     display: block;
 }
 
-/* Chat AI Banner Style */
-.header-banner-chat {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, rgba(255, 78, 0, 0.08), rgba(255, 182, 0, 0.15));
-    border: 1px solid rgba(255, 78, 0, 0.1);
-    padding: 6px 14px 6px 10px;
-    border-radius: 30px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.header-banner-chat:hover {
-    background: linear-gradient(135deg, rgba(255, 78, 0, 0.15), rgba(255, 182, 0, 0.25));
-    border-color: rgba(255, 78, 0, 0.3);
-    transform: translateY(-1px);
-    box-shadow: 0 5px 15px rgba(255, 182, 0, 0.2);
-}
-
-.chat-icon-box {
-    width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
-    background: #fff; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.ai-icon { width: 18px; height: 18px; color: #444; transition: 0.3s; }
-.header-banner-chat:hover .ai-icon { color: var(--accent-start); animation: icon-wiggle 0.5s ease; }
-
-.chat-text-box { display: flex; flex-direction: column; justify-content: center; line-height: 1.1; }
-.chat-sub { font-size: 0.6rem; color: var(--accent-start); font-weight: 700; text-transform: uppercase; }
-.chat-main { font-size: 0.8rem; font-weight: 800; color: #333; }
-
-@keyframes icon-wiggle {
-    0% { transform: rotate(0); } 25% { transform: rotate(-10deg); } 50% { transform: rotate(10deg); } 75% { transform: rotate(-5deg); } 100% { transform: rotate(0); }
-}
-
 /* --- Right Area Structure --- */
 .header-right {
     display: flex;
-    flex-direction: row; /* 横並び */
-    align-items: center; /* 垂直中央 */
+    flex-direction: row; 
+    align-items: center; 
     gap: 20px;
-    padding-right: 40px; /* 全体の右余白 */
+    padding-right: 40px; 
     flex-grow: 1;
     justify-content: flex-end;
 }
 
-/* 上下段（ボタン・メニュー）をまとめるラッパー */
 .header-main-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* 右寄せ */
+    align-items: flex-end; 
     justify-content: center;
     gap: 0;
     margin: 10px 0px;
@@ -185,15 +132,46 @@ header {
 .sns-link svg { width: 24px; height: 24px; fill: #999; transition: fill 0.3s; }
 .sns-link:hover svg { fill: var(--accent-start); }
 
-/* CV Buttons */
-.header-cv-buttons { display: flex; gap: 10px; }
-.btn-header-cv { display: block; padding: 9px 22px; font-size: 0.98rem; font-weight: 700; border-radius: 4px; transition: all 0.3s; line-height: 1; white-space: nowrap; text-align: center; }
+/* --- CV Buttons (修正点：資料DLをより目立たせる) --- */
+.header-cv-buttons { display: flex; gap: 12px; }
+.btn-header-cv { 
+    display: block; 
+    padding: 5px 22px; 
+    font-size: 0.98rem; 
+    font-weight: 700; 
+    border-radius: 4px; 
+    transition: all 0.3s; 
+    white-space: nowrap; 
+    text-align: center; 
+}
 
-.btn-header-cv.download { background: #fff; border: 1px solid var(--accent-start); color: var(--accent-start) !important; }
-.btn-header-cv.download:hover { background: rgba(255, 78, 0, 0.05); transform: translateY(-2px); }
+/* 資料ダウンロード：太い枠線＋ホバーでオレンジ反転 */
+.btn-header-cv.download { 
+    background: var(--accent-start); /* 背景色をオレンジに設定 */
+    border: 2px solid var(--accent-start); 
+    color: #fff !important; /* 文字色を白に */
+    box-shadow: 0 4px 10px rgba(255, 78, 0, 0.2);
+}
 
-.btn-header-cv.contact { background: linear-gradient(90deg, var(--accent-start), var(--accent-end)); border: 1px solid transparent; color: #fff !important; box-shadow: 0 4px 10px rgba(255, 78, 0, 0.25); }
-.btn-header-cv.contact:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255, 78, 0, 0.35); }
+/* ホバー時は白背景・オレンジ文字に反転 */
+.btn-header-cv.download:hover { 
+    filter: brightness(1.1); 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.35); 
+}
+
+
+/* お問い合わせ：オレンジグラデーション背景 */
+.btn-header-cv.contact { 
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end)); 
+    color: #fff !important; 
+    box-shadow: 0 4px 10px rgba(255, 78, 0, 0.25); 
+}
+.btn-header-cv.contact:hover { 
+    filter: brightness(1.1); 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.35); 
+}
 
 /* --- Nav Bar & Mega Menu --- */
 .header-nav-bar { padding: 5px 0 10px 0; }
@@ -209,7 +187,7 @@ nav li.has-dropdown { height: 100%; display: flex; align-items: center; }
 
 .mega-menu {
     position: fixed; 
-    top: 110px; /* ヘッダーの高さに合わせて調整してください */
+    top: 110px; 
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     width: 94%; max-width: 1300px;
@@ -235,52 +213,62 @@ nav li.has-dropdown { height: 100%; display: flex; align-items: center; }
 .menu-column a { color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 500; text-decoration: none; margin-bottom: 12px; transition: 0.2s; line-height: 1.5; display: inline-block; }
 .menu-column a:hover { color: #fff; transform: translateX(5px); text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
 
-/* --- Stats Badges (Right End) --- */
+/* --- Stats Badges (修正点：囲みデザイン・文字大きく) --- */
 .header-stats {
     display: flex;
     align-items: center;
-    gap: 10px;
-    /* バッジエリアとメニューの間隔 */
-    margin-left: 10px;
+    gap: 12px; /* カード同士の間隔 */
+    border-left: none; /* 区切り線なし */
 }
 
 .stat-badge {
     position: relative;
-    /* バッジの大きさ（画像に合わせて調整） */
-    width: 85px; 
-    height: 85px;
-    border-radius: 8px;
-    overflow: hidden;
-    flex-shrink: 0;
-    transition: transform 0.3s;
+    width: auto; height: auto;
+    /* 囲みデザイン */
+    background: #fdfdfd; 
+    border: 1px solid #e0e0e0;
+    border-radius: 8px; /* 角丸 */
+    padding: 15px 16px; /* 余白 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 中央揃え */
+    justify-content: center;
+    transition: all 0.3s;
+    min-width: 80px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
 }
 
-.stat-badge:hover { transform: translateY(-2px); }
-.stat-badge img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.stat-badge:hover { 
+    transform: translateY(-2px); 
+    border-color: var(--accent-start); /* ホバー時に枠をオレンジに */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.stat-badge:hover .stat-number { color: var(--accent-start); }
 
-/* 画像に重ねる数値 */
+.stat-label {
+    font-size: 0.9rem; /* 文字サイズ調整 */
+    font-weight: 700;
+    color: #777;
+    margin-bottom: 2px;
+    display: block;
+    line-height: 1;
+}
+
 .stat-number {
-    position: absolute;
-    /* 画像のデザインに合わせて位置調整：中央より少し下 */
-    top: 55%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    color: #fff;
+    color: #333;
     font-family: 'Montserrat', sans-serif;
     font-weight: 800;
-    font-size: 1.4rem;
-    line-height: 1;
-    white-space: nowrap;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 1.8rem; /* 大きく強調 */
+    line-height: 1.1;
     letter-spacing: -0.02em;
+    transition: color 0.3s;
 }
-.stat-number small { font-size: 0.6em; font-weight: 700; margin-left: 1px; }
+.stat-number small { font-size: 0.5em; font-weight: 700; margin-left: 2px; color: #666; }
 
-/* レスポンシブ：画面が狭い場合バッジを隠す */
 @media (max-width: 1200px) {
     .header-stats { display: none; }
 }
+
 /* =========================================
    5. General Layout & Typography
    ========================================= */
@@ -300,27 +288,9 @@ section {
     display: inline-block;
 }
 
-h1 {
-    font-size: 6vw;
-    line-height: 1.1;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: #000;
-}
-
-h2 {
-    font-size: 3rem;
-    margin-bottom: 40px;
-    font-weight: 700;
-    color: #000;
-}
-
-p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    max-width: 600px;
-}
+h1 { font-size: 6vw; line-height: 1.1; font-weight: 800; margin-bottom: 20px; color: #000; }
+h2 { font-size: 3rem; margin-bottom: 40px; font-weight: 700; color: #000; }
+p { font-size: 1.1rem; line-height: 1.8; color: #555; max-width: 600px; }
 
 /* =========================================
    6. Hero Section
@@ -332,357 +302,89 @@ p {
     justify-content: space-between;
     gap: 40px;
     overflow: visible;
-    /* ヘッダーが高くなったので余白を追加 */
     padding-top: 80px; 
 }
 
-.hero-left {
-    flex: 1;
-    max-width: 600px;
-    z-index: 2;
-}
+.hero-left { flex: 1; max-width: 600px; z-index: 2; }
+.hero-right { flex: 1; max-width: 450px; height: 500px; position: relative; display: flex; flex-direction: column; z-index: 2; margin-right: -20px; }
 
-.hero-right {
-    flex: 1;
-    max-width: 450px;
-    height: 500px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    margin-right: -20px;
-}
-/* =========================================
-   Hero Lead Text Styling
-   ========================================= */
-
-/* テキストブロック全体 */
 .hero-lead-block {
-    padding-left: 25px; /* 左側の線の分あける */
+    padding-left: 25px;
     position: relative;
-    /* 背景のラインと被っても読めるように薄いガラス風背景を敷く */
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(5px);
 }
-
-/* メインキャッチコピー */
-.lead-catch {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #000;
-    letter-spacing: 0.05em;
-}
-
-/* キャッチコピーの強調部分（インテリジェンス） */
-.lead-catch .highlight {
-    font-size: 1.8rem; /* 少し大きく */
-    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    margin-top: 5px;
-}
-
-/* 本文エリア */
 .lead-body p {
-    font-size: 1rem;
-    line-height: 2;
-    color: #444;
-    margin-bottom: 15px;
-    font-feature-settings: "palt"; /* 文字詰め */
-    max-width: 100%; /* 親要素に合わせる */
-    font-weight: bold;
+    font-size: 1rem; line-height: 2; color: #444; margin-bottom: 15px;
+    font-feature-settings: "palt"; max-width: 100%; font-weight: bold;
 }
 
-/* 最後のメッセージ（今日の挑戦が?） */
-.lead-message {
-    font-weight: 700;
-    color: #222 !important; /* 少し濃く */
-    margin-top: 10px;
-    display: inline-block;
-    border-bottom: 2px solid rgba(255, 78, 0, 0.3); /* 下線で強調 */
-}
-
-/* スマホ対応 */
 @media (max-width: 768px) {
-    .hero-lead-block {
-        margin-top: 30px;
-        padding: 15px;
-        border-left-width: 3px;
-    }
-    .lead-catch {
-        font-size: 1.2rem;
-    }
-    .lead-catch .highlight {
-        font-size: 1.4rem;
-    }
-    .lead-body p {
-        font-size: 0.9rem;
-        line-height: 1.8;
-    }
+    .hero-lead-block { margin-top: 30px; padding: 15px; border-left-width: 3px; }
+    .hero-lead-block::before { display: none; }
+    .lead-body p { font-size: 0.9rem; line-height: 1.8; }
 }
+
 /* --- Feed (Infinite Scroll) --- */
 .feed-label {
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #999;
-    margin-bottom: 15px;
-    text-align: right;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+    font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; color: #999;
+    margin-bottom: 15px; text-align: right; border-bottom: 1px solid #ddd; padding-bottom: 10px;
 }
-
 .feed-window {
-    flex-grow: 1;
-    overflow: hidden;
-    position: relative;
+    flex-grow: 1; overflow: hidden; position: relative;
     mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
 }
-
-.feed-track {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    animation: scroll-vertical 25s linear infinite;
-}
-
-.feed-window:hover .feed-track {
-    animation-play-state: paused;
-}
-
-@keyframes scroll-vertical {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-}
+.feed-track { display: flex; flex-direction: column; gap: 15px; animation: scroll-vertical 25s linear infinite; }
+.feed-window:hover .feed-track { animation-play-state: paused; }
+@keyframes scroll-vertical { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
 
 .feed-item {
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.8);
     border-left: 3px solid var(--accent-start);
-    padding: 20px;
-    border-radius: 8px;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    display: block;
+    padding: 20px; border-radius: 8px; transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: block;
 }
+.feed-item:hover { background: #fff; transform: translateX(-5px); box-shadow: 0 10px 25px rgba(255, 78, 0, 0.15); }
 
-.feed-item:hover {
-    background: #fff;
-    transform: translateX(-5px);
-    box-shadow: 0 10px 25px rgba(255, 78, 0, 0.15);
-}
-
-.feed-tag {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--accent-start);
-    border: 1px solid var(--accent-start);
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    display: inline-block;
-}
-
-.feed-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #333;
-    line-height: 1.5;
-    margin-bottom: 8px;
-}
-
-.feed-date {
-    font-size: 0.8rem;
-    color: #888;
-    display: block;
-    text-align: right;
-}
+.feed-tag { font-size: 0.7rem; font-weight: 700; color: var(--accent-start); border: 1px solid var(--accent-start); padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; display: inline-block; }
+.feed-title { font-size: 0.95rem; font-weight: 600; color: #333; line-height: 1.5; margin-bottom: 8px; }
+.feed-date { font-size: 0.8rem; color: #888; display: block; text-align: right; }
 
 /* =========================================
    7. Press Release Bar
    ========================================= */
 .press-release-bar {
-    position: relative;
-    width: 100%;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    backdrop-filter: blur(10px);
-    z-index: 50;
-    padding: 30px 0;
-    opacity: 0;
-    transform: translateY(20px);
+    position: relative; width: 100%; border-bottom: 1px solid rgba(0,0,0,0.05);
+    backdrop-filter: blur(10px); z-index: 50; padding: 30px 0; opacity: 0; transform: translateY(20px);
 }
+.news-list-container { max-width: 1000px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 0; }
+.news-row { display: flex; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(0, 0, 0, 0.08); transition: 0.3s; gap: 30px; }
+.news-row:first-child { border-top: 1px solid rgba(0, 0, 0, 0.08); }
+.news-row:hover { background: rgba(255, 78, 0, 0.02); padding-left: 15px; padding-right: 15px; }
 
-.news-list-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
-.news-row {
-    display: flex;
-    align-items: center;
-    padding: 18px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    transition: 0.3s;
-    gap: 30px;
-}
-
-.news-row:first-child {
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.news-row:hover {
-    background: rgba(255, 78, 0, 0.02);
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.news-meta {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex-shrink: 0;
-    min-width: 220px;
-}
-
-.cat-badge {
-    padding: 4px 10px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-    color: #fff;
-    min-width: 120px;
-    text-align: center;
-}
-
+.news-meta { display: flex; align-items: center; gap: 15px; flex-shrink: 0; min-width: 220px; }
+.cat-badge { padding: 4px 10px; font-size: 0.7rem; font-weight: 700; border-radius: 4px; letter-spacing: 0.5px; color: #fff; min-width: 120px; text-align: center; }
 .cat-badge.press { background-color: var(--accent-start); }
 .cat-badge.topics { background-color: #333; }
 
-.news-date {
-    color: #888;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.news-title {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #111;
-    line-height: 1.5;
-    transition: 0.3s;
-}
-
+.news-date { color: #888; font-size: 0.85rem; font-weight: 500; }
+.news-title { font-size: 0.95rem; font-weight: 500; color: #111; line-height: 1.5; transition: 0.3s; }
 .news-row:hover .news-title { color: var(--accent-start); }
-
-.news-more {
-    margin-top: 20px;
-    text-align: right;
-}
-
-.view-all-link {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: #555;
-    transition: 0.3s;
-}
-
-.view-all-link:hover {
-    color: var(--accent-start);
-    letter-spacing: 1px;
-}
+.news-more { margin-top: 20px; text-align: right; }
+.view-all-link { font-size: 0.8rem; font-weight: 700; color: #555; transition: 0.3s; }
+.view-all-link:hover { color: var(--accent-start); letter-spacing: 1px; }
 
 /* =========================================
-   8. Mission & Services Sections
+   8. Mission Section
    ========================================= */
-.mission {
-    align-items: flex-end;
-    text-align: right;
-}
-
-.mission h2 span { display: block; }
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    width: 100%;
-    margin-top: 50px;
-}
-
-.card {
-    background: var(--glass-bg);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 40px;
-    border-radius: 12px;
-    backdrop-filter: blur(15px);
-    box-shadow: var(--card-shadow);
-    transition: 0.4s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
-    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: 0.4s ease;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(255, 78, 0, 0.15);
-}
-
-.card:hover::before { transform: scaleX(1); }
-
-.card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #000;
-}
+.mission { align-items: flex-end; text-align: right; }
 
 /* =========================================
-   9. Footer & Chatbot
+   9. Chatbot (Modified)
    ========================================= */
-footer {
-    padding: 100px 10%;
-    background: #f9f9f9;
-    text-align: center;
-    border-top: 1px solid #eee;
-}
-
-.cta-btn {
-    display: inline-block;
-    padding: 20px 60px;
-    border: 2px solid var(--accent-start);
-    color: var(--accent-start);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    transition: 0.3s;
-    margin-bottom: 50px;
-    background: transparent;
-}
-
-.cta-btn:hover {
-    background: var(--accent-start);
-    color: #fff;
-    box-shadow: 0 10px 20px rgba(255, 78, 0, 0.3);
-}
-
-/* Chatbot Floating Button */
 .ai-chatbot {
     position: fixed;
     bottom: 40px;
@@ -694,17 +396,14 @@ footer {
     box-shadow: 
         0 10px 25px -5px rgba(255, 78, 0, 0.5),
         0 0 15px 2px rgba(255, 182, 0, 0.3) inset;
-    transform: translateY(120px) scale(0.8);
-    opacity: 0;
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s;
-    pointer-events: none;
-    text-align: left;
-}
-
-.ai-chatbot.visible {
+    
     transform: translateY(0) scale(1);
     opacity: 1;
     pointer-events: auto;
+    
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    text-align: left;
+    
     animation: floating 3s ease-in-out infinite alternate;
 }
 
@@ -713,62 +412,18 @@ footer {
     100% { transform: translateY(-12px) scale(1.02); box-shadow: 0 15px 30px -5px rgba(255, 78, 0, 0.6); }
 }
 
-.chatbot-content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-    z-index: 2;
-}
-
-.chatbot-icon {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.chatbot-icon svg {
-    width: 36px;
-    height: 36px;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-}
-
-.chatbot-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
-
-.chatbot-label-main {
-    color: #fff;
-    font-weight: 800;
-    font-size: 1.05rem;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-}
-
-.chatbot-label-sub {
-    color: rgba(255,255,255,0.9);
-    font-size: 0.75rem;
-    font-weight: 700;
-}
+.chatbot-content-wrapper { display: flex; align-items: center; gap: 12px; position: relative; z-index: 2; }
+.chatbot-icon { width: 44px; height: 44px; display: flex; justify-content: center; align-items: center; }
+.chatbot-icon svg { width: 32px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+.chatbot-text { display: flex; flex-direction: column; line-height: 1.2; }
+.chatbot-label-main { color: #fff; font-weight: 800; font-size: 1.05rem; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+.chatbot-label-sub { color: rgba(255,255,255,0.9); font-size: 0.75rem; font-weight: 700; }
 
 .chatbot-pulse-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 182, 0, 0.6);
-    border-radius: 60px;
-    z-index: 0;
-    animation: pulse-glow 2s infinite;
-    opacity: 0;
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 100%; height: 100%; background: rgba(255, 182, 0, 0.6);
+    border-radius: 60px; z-index: 0; animation: pulse-glow 2s infinite; opacity: 0;
 }
-
 @keyframes pulse-glow {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
     70% { transform: translate(-50%, -50%) scale(1.4, 1.5); opacity: 0; }
@@ -779,77 +434,28 @@ footer {
    10. Responsive Media Queries
    ========================================= */
 @media (max-width: 900px) {
-    header {
-        flex-direction: column;
-        height: auto;
-    }
-    
-    .header-left {
-        justify-content: center;
-        padding: 15px;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .header-right {
-        align-items: center;
-    }
-    
-    .header-top-bar {
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 10px;
-    }
-    
-    .header-nav-bar {
-        display: none; /* スマホではハンバーガーメニュー等への変更を推奨 */
-    }
-
-    .hero {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 200px;
-    }
-    
-    .hero-right {
-        display: none;
-    }
-    
-    .hero-left h1 {
-        font-size: 12vw;
-    }
-
-    /* ニュースバー */
+    header { flex-direction: column; height: auto; }
+    .header-left { justify-content: center; padding: 15px; border-bottom: 1px solid #eee; }
+    .header-right { align-items: center; }
+    .header-top-bar { justify-content: center; flex-wrap: wrap; padding: 10px; }
+    .header-stats { display: none; }
+    .header-cv-buttons { gap: 8px; }
+    .btn-header-cv { font-size: 0.8rem; padding: 8px 15px; }
+    .header-nav-bar { display: none; }
+    .hero { flex-direction: column; align-items: flex-start; padding-top: 200px; }
+    .hero-right { display: none; }
+    .hero-left h1 { font-size: 12vw; }
     .press-release-bar { padding: 20px 0; }
     .news-list-container { padding: 0 20px; }
-    .news-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 15px 0;
-    }
-    .news-row:hover {
-        padding-left: 0; padding-right: 0;
-        background: transparent;
-    }
-    .news-meta {
-        width: 100%; min-width: auto; justify-content: flex-start;
-    }
+    .news-row { flex-direction: column; align-items: flex-start; gap: 8px; padding: 15px 0; }
+    .news-row:hover { padding-left: 0; padding-right: 0; background: transparent; }
+    .news-meta { width: 100%; min-width: auto; justify-content: flex-start; }
     .cat-badge { min-width: auto; }
-    
-    /* チャットボット */
-    .ai-chatbot {
-        padding: 10px 18px;
-        bottom: 25px; right: 25px;
-    }
+    .ai-chatbot { padding: 10px 18px; bottom: 25px; right: 25px; }
     .chatbot-content-wrapper { gap: 8px; }
     .chatbot-icon { width: 36px; height: 36px; }
-    .chatbot-icon svg { width: 28px; height: 28px; }
+    .chatbot-icon svg { width: 24px; height: 24px; }
     .chatbot-label-sub { display: none; }
     .chatbot-label-main { font-size: 0; }
-    .chatbot-label-main::after {
-        content: "AIチャット";
-        font-size: 0.95rem;
-        font-weight: 800;
-    }
+    .chatbot-label-main::after { content: "AIチャット"; font-size: 0.9rem; font-weight: 800; }
 }
-
