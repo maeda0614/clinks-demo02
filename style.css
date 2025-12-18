@@ -104,7 +104,6 @@ header {
     display: flex;
     flex-direction: row; 
     align-items: center; 
-    gap: 20px;
     padding-right: 40px; 
     flex-grow: 1;
     justify-content: flex-end;
@@ -132,47 +131,107 @@ header {
 .sns-link svg { width: 24px; height: 24px; fill: #999; transition: fill 0.3s; }
 .sns-link:hover svg { fill: var(--accent-start); }
 
-/* --- CV Buttons (修正点：資料DLをより目立たせる) --- */
-.header-cv-buttons { display: flex; gap: 12px; }
+/* --- CV Buttons (修正：色・サイズ統一 / オレンジ強めグラデ) --- */
+.header-cv-buttons { 
+    display: flex; 
+    gap: 12px; 
+}
+
 .btn-header-cv { 
-    display: block; 
-    padding: 5px 22px; 
-    font-size: 0.98rem; 
+    /* サイズ統一設定 */
+    width: 160px;      /* 横幅を固定して揃える */
+    height: 35px;      /* 高さも固定 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-size: 0.95rem; 
     font-weight: 700; 
     border-radius: 4px; 
-    transition: all 0.3s; 
-    white-space: nowrap; 
-    text-align: center; 
-}
-
-/* 資料ダウンロード：太い枠線＋ホバーでオレンジ反転 */
-.btn-header-cv.download { 
-    background: var(--accent-start); /* 背景色をオレンジに設定 */
-    border: 2px solid var(--accent-start); 
-    color: #fff !important; /* 文字色を白に */
-    box-shadow: 0 4px 10px rgba(255, 78, 0, 0.2);
-}
-
-/* ホバー時は白背景・オレンジ文字に反転 */
-.btn-header-cv.download:hover { 
-    filter: brightness(1.1); 
-    transform: translateY(-2px); 
-    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.35); 
-}
-
-
-/* お問い合わせ：オレンジグラデーション背景 */
-.btn-header-cv.contact { 
-    background: linear-gradient(90deg, var(--accent-start), var(--accent-end)); 
+    line-height: 1;
+    transition: all 0.3s;
+    
+    /* 色デザイン：オレンジ多めのグラデーション */
+    background: linear-gradient(90deg, #FF4E00 0%, #FF8800 100%);
+    border: none;
     color: #fff !important; 
-    box-shadow: 0 4px 10px rgba(255, 78, 0, 0.25); 
-}
-.btn-header-cv.contact:hover { 
-    filter: brightness(1.1); 
-    transform: translateY(-2px); 
-    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.35); 
+    box-shadow: 0 4px 10px rgba(255, 78, 0, 0.25);
 }
 
+.btn-header-cv:hover { 
+    filter: brightness(1.1); /* ホバー時は少し明るく */
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 20px rgba(255, 78, 0, 0.4); 
+}
+
+/* 個別の .download / .contact スタイルは削除（共通化したため） */
+
+
+/* --- Stats Badges (修正：日付注釈追加) --- */
+.header-stats {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+    padding-left: 25px;
+    border-left: none;
+}
+
+.stat-badge {
+    position: relative;
+    width: 110px;
+    height: auto;
+    border: 2px solid transparent; 
+    border-radius: 8px;
+    background: linear-gradient(#fff, #fff) padding-box, linear-gradient(135deg, #FF4E00, #FFB600) border-box;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.stat-badge:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 5px 15px rgba(255, 78, 0, 0.15);
+}
+.stat-badge:hover .stat-number { color: var(--accent-start); }
+
+.stat-label {
+    font-size: 0.8rem; /* 少し小さく調整 */
+    font-weight: 700;
+    color: #777;
+    margin-bottom: 0px;
+    display: block;
+    line-height: 1;
+}
+
+.stat-number {
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.7rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    transition: color 0.3s;
+}
+.stat-number small { 
+    font-size: 0.6em; 
+    font-weight: 700; 
+    margin-left: 2px; 
+    color: #333; 
+}
+
+/* 追加：日付注釈のスタイル */
+.stat-note {
+    font-size: 0.65rem;
+    color: #666;
+    font-weight: 500;
+    margin-top: 2px;
+    line-height: 1;
+    white-space: nowrap;
+}
 /* --- Nav Bar & Mega Menu --- */
 .header-nav-bar { padding: 5px 0 10px 0; }
 .header-nav-bar ul { display: flex; list-style: none; align-items: center; gap: 0; }
@@ -212,58 +271,6 @@ nav li.has-dropdown { height: 100%; display: flex; align-items: center; }
 .menu-column h4 { color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
 .menu-column a { color: rgba(255, 255, 255, 0.9); font-size: 1rem; font-weight: 500; text-decoration: none; margin-bottom: 12px; transition: 0.2s; line-height: 1.5; display: inline-block; }
 .menu-column a:hover { color: #fff; transform: translateX(5px); text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
-
-/* --- Stats Badges (修正点：囲みデザイン・文字大きく) --- */
-.header-stats {
-    display: flex;
-    align-items: center;
-    gap: 12px; /* カード同士の間隔 */
-    border-left: none; /* 区切り線なし */
-}
-
-.stat-badge {
-    position: relative;
-    width: auto; height: auto;
-    /* 囲みデザイン */
-    background: #fdfdfd; 
-    border: 1px solid #e0e0e0;
-    border-radius: 8px; /* 角丸 */
-    padding: 15px 16px; /* 余白 */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 中央揃え */
-    justify-content: center;
-    transition: all 0.3s;
-    min-width: 80px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-}
-
-.stat-badge:hover { 
-    transform: translateY(-2px); 
-    border-color: var(--accent-start); /* ホバー時に枠をオレンジに */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-.stat-badge:hover .stat-number { color: var(--accent-start); }
-
-.stat-label {
-    font-size: 0.9rem; /* 文字サイズ調整 */
-    font-weight: 700;
-    color: #777;
-    margin-bottom: 2px;
-    display: block;
-    line-height: 1;
-}
-
-.stat-number {
-    color: #333;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem; /* 大きく強調 */
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    transition: color 0.3s;
-}
-.stat-number small { font-size: 0.5em; font-weight: 700; margin-left: 2px; color: #666; }
 
 @media (max-width: 1200px) {
     .header-stats { display: none; }
