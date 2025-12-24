@@ -221,3 +221,41 @@ window.addEventListener('resize', () => {
         }
     });
 });
+
+// =====================================================================
+// --- 4. Mobile Menu Logic ---
+// =====================================================================
+
+// ハンバーガーメニューの開閉
+const hamburgerBtn = document.querySelector('.hamburger-menu');
+const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+
+if (hamburgerBtn && mobileMenuOverlay) {
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        
+        // メニューが開いているときは背景スクロールを禁止
+        if (mobileMenuOverlay.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+// モバイル用アコーディオンメニュー
+const mobileNavHeaders = document.querySelectorAll('.mobile-nav-header');
+
+mobileNavHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        // アイコンの回転切り替え
+        header.classList.toggle('active');
+        
+        // コンテンツの開閉
+        const content = header.nextElementSibling;
+        if (content) {
+            content.classList.toggle('open');
+        }
+    });
+});
